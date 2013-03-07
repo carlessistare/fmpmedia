@@ -26,7 +26,7 @@ class MediaFile(db.Model):
 ########################
 # MediaFile's Managing
 ########################
-class Ad4sMediaUploadFile(webapp2.RequestHandler):
+class FmpMediaUploadFile(webapp2.RequestHandler):
     def post(self):
         
         self.response.headers['Content-Type'] = 'application/json'
@@ -51,7 +51,7 @@ class Ad4sMediaUploadFile(webapp2.RequestHandler):
             self.error(400)
             self.response.out.write('{"error":"Sorry, we had a problem processing the file provided."}')
 
-class Ad4sMediaUpdateFile(webapp2.RequestHandler):
+class FmpMediaUpdateFile(webapp2.RequestHandler):
     def post(self):
         
         self.response.headers['Content-Type'] = 'application/json'
@@ -71,7 +71,7 @@ class Ad4sMediaUpdateFile(webapp2.RequestHandler):
             self.response.out.write('{"error":"Sorry, we had a problem processing id provided."}')
 
 
-class Ad4sMediaShowFile(webapp2.RequestHandler):
+class FmpMediaShowFile(webapp2.RequestHandler):
     
     def get(self, type_folder, id_folder, id_media_file, file_extention):
         try:
@@ -82,7 +82,7 @@ class Ad4sMediaShowFile(webapp2.RequestHandler):
             self.response.headers['Content-Type'] = 'text/plain'
             self.response.out.write('No File Found. Key: ' + id_media_file + ' ' + id_folder)
 
-class Ad4sMediaDelFile(webapp2.RequestHandler):
+class FmpMediaDelFile(webapp2.RequestHandler):
     
     def get(self, id_media_file):
         self.response.headers['Content-Type'] = 'application/json'
@@ -95,7 +95,7 @@ class Ad4sMediaDelFile(webapp2.RequestHandler):
 ########################
 # Folder Managing
 ########################
-class Ad4sMediaDelPackage(webapp2.RequestHandler):
+class FmpMediaDelPackage(webapp2.RequestHandler):
     
     def get(self, type_folder, id_folder):
         self.response.headers['Content-Type'] = 'application/json'
@@ -107,7 +107,7 @@ class Ad4sMediaDelPackage(webapp2.RequestHandler):
             self.response.out.write('{"error":"No Package Found. Key: ' + id_folder + '"}')
             
 
-class Ad4sMediaGetPackage(webapp2.RequestHandler):
+class FmpMediaGetPackage(webapp2.RequestHandler):
     
     def get(self, type_folder, id_folder):
         try:
@@ -152,12 +152,12 @@ class Ad4sMediaGetPackage(webapp2.RequestHandler):
 
 
 def main():
-    url_map = [('/package/([-\w]+)/([-\w]+)', Ad4sMediaGetPackage),
-               ('/upload', Ad4sMediaUploadFile),
-               ('/update', Ad4sMediaUpdateFile),
-               ('/delfile/([-\w]+)', Ad4sMediaDelFile),
-               ('/delpackage/([-\w]+)/([-\w]+)', Ad4sMediaDelPackage),
-               ('/([-\w]+)/([-\w]+)/([-\w]+)(\.\w*)?', Ad4sMediaShowFile)]
+    url_map = [('/package/([-\w]+)/([-\w]+)', FmpMediaGetPackage),
+               ('/upload', FmpMediaUploadFile),
+               ('/update', FmpMediaUpdateFile),
+               ('/delfile/([-\w]+)', FmpMediaDelFile),
+               ('/delpackage/([-\w]+)/([-\w]+)', FmpMediaDelPackage),
+               ('/([-\w]+)/([-\w]+)/([-\w]+)(\.\w*)?', FmpMediaShowFile)]
     application = webapp2.WSGIApplication(url_map, debug=True)
     wsgiref.handlers.CGIHandler().run(application)
 
