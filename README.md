@@ -13,7 +13,7 @@ Regarding to its efficiency it could be a good idea to use this service as our o
 
 2.1 Upload File
 
-http://ad4smedia.appspot.com/upload
+http://app-name.appspot.com/upload
 Type: POST
 Fields:
 •	name: original name of the file with its extension ( Ex.: cocacola-logo.jpg )
@@ -29,7 +29,7 @@ Returns: Json with the unique identifier for this file.
 
 2.2 Update File
 
-http://ad4smedia.appspot.com/update
+http://app-name.appspot.com/update
 Type: POST
 Fields:
 •	id: identifier of the file
@@ -40,7 +40,7 @@ Returns: Json with the unique identifier for this file.
 
 2.3 Show Image
 
-http://ad4smedia.appspot.com/xxx/yyy/zzzzzzzzzzzzz
+http://app-name.appspot.com/xxx/yyy/zzzzzzzzzzzzz
 
 Type: GET
 Fields:
@@ -50,7 +50,7 @@ zzzzzzzzzzzzz: image identifier
 
 2.4 Download Package
 
-http://ad4smedia.appspot.com/package/xxx/yyy
+http://app-name.appspot.com/package/xxx/yyy
 Type: GET
 Fields:
 •	xxx: ‘campaign’ | ‘support’
@@ -60,7 +60,7 @@ Returns: ZIP package containing all the campaign files
 
 2.5 Delete File
 
-http://ad4smedia.appspot.com/delfile/yyyyyyyyyyyyy 
+http://app-name.appspot.com/delfile/yyyyyyyyyyyyy 
 Type: GET
 Fields:
 •	yyyyyyyyyyyyy: file identifier
@@ -68,7 +68,7 @@ Fields:
 
 2.6 Delete package
 
-http://ad4smedia.appspot.com/delpackage/xxx/yyy 
+http://app-name.appspot.com/delpackage/xxx/yyy 
 Type: GET
 Fields:
 •	xxx: ‘campaign’ | ‘support’
